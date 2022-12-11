@@ -1,52 +1,52 @@
-# Mendefinisikan fungsi
+
+# Definisi Fungsi
 def f(x):
-    return x**3 - 2*x + 7
+    return x**3 - 6*x +2 
 
-# Defining derivative of function
+# Definisi ungsi turunan
 def g(x):
-    return 3*x**2 - 2
+    return 3*x**2 -6
 
-# Implementasi Metode Newton Raphson 
+# Implementasi Metode Newton Raphson
 
-def newtonRaphson(x0,galat,jumlahIterasi):
-    print('\n\n#################### PROGRAM SPL METODE NEWTON-RAPHSON ####################')
-    langkah = 1
-    tanda = 1
-    kondisi = True
-    while kondisi:
+def newtonRaphson(x0,e,N):
+    print('\n\n*** IMPLEMENTASI METODE NEWTON RAPHSON ***')
+    step = 1
+    flag = 1
+    condition = True
+    while condition:
         if g(x0) == 0.0:
-            print('Tidak bisa dibagi dengan 0!')
+            print('Divide by zero error!')
             break
         
         x1 = x0 - f(x0)/g(x0)
-        print('Iterasi ke-%d, x1 = %0.6f and f(x1) = %0.6f' % (langkah, x1, f(x1)))
+        print('Iterasi-%d, x1 = %0.6f dan f(x1) = %0.6f' % (step, x1, f(x1)))
         x0 = x1
-        langkah += 1
+        step = step + 1
         
-        if langkah > jumlahIterasi:
-            tanda = 0
+        if step > N:
+            flag = 0
             break
         
-        kondisi = abs(f(x1)) > galat
+        condition = abs(f(x1)) > e
     
-    if tanda==1:
-        print('\nAkar yang ditemukan adalah: %0.8f' % x1)
+    if flag==1:
+        print('\nRequired root is: %0.8f' % x1)
     else:
-        print('\nTidak konvergen atau memiliki akar kembar.')
+        print('\nNot Convergent.')
 
 
-# Inputan Nilai
-x0 = input('Masukan tebakan awal: ')
-galat = input('Toleransi kesalahan: ')
-jumlahIterasi = input('Maksimal iterasi: ')
+# Input Section
+x0 = input('Enter Guess: ')
+e = input('Tolerable Error: ')
+N = input('Maximum Step: ')
 
-# Konversi x0 dan galat ke double
+# Converting x0 and e to float
 x0 = float(x0)
-galat = float(galat)
+e = float(e)
 
-# Konversi Jumlah Iterasi ke bilangan bulat
-jumlahIterasi = int(jumlahIterasi)
+# Converting N to integer
+N = int(N)
 
-
-# Pemanggilan fungsi Newton-Raphson
-newtonRaphson(x0,galat,jumlahIterasi)
+# Starting Newton Raphson Method
+newtonRaphson(x0,e,N)

@@ -38,12 +38,3 @@ for i in range(banyakData):
 
 # Menampilkan hasil keluaran
 print('Nilai interpolasi untuk titik %.3f adalah %.3f.' % (nilaiXP, nilaiYP))
-Footer
-© 2023 GitHub, Inc.
-Footer navigation
-Terms
-Privacy
-Security
-Status
-Docs
-Contact GitHu
